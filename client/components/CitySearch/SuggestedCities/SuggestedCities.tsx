@@ -1,14 +1,45 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import SuggestedCitiesItem from './SuggestedCitiesItem/SuggestedCitiesItem';
+import { useSelector } from 'react-redux';
+import { getCities } from '@/services/GeocodingService';
+import IGeocodingData from '@/types/Geocoding';
 
 const SuggestedCities : React.FC = () => {
 
-  const cities : string[] = [] 
+  const [cities, setCities] = useState<IGeocodingData[]>([]);
+  const searchParams : string = useSelector(state => state.searchCity.cityName);
+
+  useEffect(() => {
+      
+      if(searchParams === '')
+        setCities([]);
+    
+      getCities(searchParams).then((res : any) => {
+        setCities(res.data);
+      })
+      .catch((e : Error) => {
+        
+      })
+
+  }, [searchParams]);
+
+  const onCitySelect = (index : number) => {
+    console.log(index);
+  }
 
   return (
-    <div className='w-80 bg-white top-11 border-cyan-950 rounded-b-lg overflow-hidden'>
-      {cities.map((item) => (
-       <SuggestedCitiesItem cityName={item}/> 
+    <div className='w-80 bg-white top-11 border-cyan-950 rounded-b-lg overflow-hidden absolute'>
+      {cities.map((item, index) => (
+      <SuggestedCitiesItem
+        key={index}
+        cityName={item.name}
+        state={item.state}
+        country={item.country}
+        index={index}
+        onClick={() => onCitySelect(index)}
+      /> 
       ))}
     </div>
   )

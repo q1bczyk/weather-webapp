@@ -1,14 +1,22 @@
 'use client'
 
+import { enterData } from '@/redux/actions/searchCityAction';
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 
 const SearchInput : React.FC = () => {
   
+    const dispatch = useDispatch();
     const [formValue, setFormValue] = useState<string>('');
   
+    const handleEnterData = (cityName : string) => {
+        setFormValue(cityName);
+        dispatch(enterData(cityName));
+    }
+
     return (
     <div className='w-11/12'>
-        <form className="max-w-md mx-auto flex justify-center w-96">   
+        <form className="max-w-md mx-auto flex justify-center w-80">   
             <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
                 Search
             </label>
@@ -30,9 +38,9 @@ const SearchInput : React.FC = () => {
                 </div>
                 <input 
                     value={formValue} 
-                    onChange={(event) => setFormValue(event.target.value)} 
+                    onChange={(event) => handleEnterData(event.target.value)} 
                     type="search" id="default-search" 
-                    className="block w-full p-3 ps-10 text-md text-slate-50 rounded-lg bg-black bg-opacity-40" 
+                    className="block w-80 p-3 ps-10 text-md text-slate-50 rounded-lg bg-black bg-opacity-40" 
                     placeholder="Podaj miejsce" 
                     required
                 />

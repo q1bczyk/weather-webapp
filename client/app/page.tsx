@@ -1,5 +1,4 @@
 import Home from '@/pages/home/Home'
-import React, { useState } from 'react'
 
 const Page : React.FC = () => {
   return (
