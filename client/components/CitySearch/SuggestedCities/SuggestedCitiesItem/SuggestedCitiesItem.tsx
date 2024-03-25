@@ -5,6 +5,7 @@ interface SuggestedCitiesItemInterface{
 }
 
 const SuggestedCitiesItem : React.FC<SuggestedCitiesItemInterface> = (props) => {
+  
   return (
     <div>
       <div className='w-full relative'>
