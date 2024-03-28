@@ -38,7 +38,7 @@ const SuggestedCities : React.FC = () => {
   }
 
   return (
-    <div className='w-80 bg-white top-11 border-cyan-950 rounded-b-lg overflow-hidden absolute'>
+    <div className='w-80 bg-white top-16 border-cyan-950 rounded-b-lg overflow-hidden absolute'>
       {cities.map((item, index) => (
       <SuggestedCitiesItem
         key={index}

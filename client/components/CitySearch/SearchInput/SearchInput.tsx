@@ -16,10 +16,8 @@ const SearchInput : React.FC = () => {
 
     return (
     <div className='w-11/12'>
-        <form className="max-w-md mx-auto flex justify-center w-80">   
-            <label className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
-                Search
-            </label>
+        <form className="max-w-md mx-auto flex flex-col justify-center w-80">
+            <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-white '>Wprowadź nazwę miasta </label>   
             <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                     <svg 
@@ -40,8 +38,8 @@ const SearchInput : React.FC = () => {
                     value={formValue} 
                     onChange={(event) => handleEnterData(event.target.value)} 
                     type="search" id="default-search" 
-                    className="block w-80 p-3 ps-10 text-md text-slate-50 rounded-lg bg-black bg-opacity-10" 
-                    placeholder="Podaj miejsce" 
+                    className="block w-80 p-2.5 ps-10 text-md text-slate-50 rounded-lg bg-black bg-opacity-10" 
+                    placeholder="miasto" 
                     required
                 />
             </div>
