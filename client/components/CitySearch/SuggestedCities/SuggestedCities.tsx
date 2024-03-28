@@ -6,10 +6,14 @@ import { useSelector } from 'react-redux';
 import { getCities } from '@/services/GeocodingService';
 import IGeocodingData from '@/types/IGeocodingData';
 import { useRouter } from 'next/navigation';
+import { useDispatch } from '@/node_modules/react-redux/dist/react-redux';
+import { enterData } from '@/redux/actions/searchCityAction';
 
 const SuggestedCities : React.FC = () => {
 
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const [cities, setCities] = useState<IGeocodingData[]>([]);
   const searchParams : string = useSelector(state => state.searchCity.cityName);
 
@@ -29,6 +33,7 @@ const SuggestedCities : React.FC = () => {
   }, [searchParams]);
 
   const onCitySelect = (index : number) => {
+    dispatch(enterData(''));
     router.push(`/weather?place=${cities[index].name}`);
   }
 
