@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
-import Loader from '@/components/Loader'
+import React from 'react'
 import CitySearch from '@/components/CitySearch/CitySearch'
 
 const Home : React.FC = () => {
