@@ -1,7 +1,8 @@
+import IMainWeatherPropeties from "./IMainWeatherPropeties";
 import IWeatherDescription from "./IWeatherDescription";
 
 export default interface ICurrentWeather{
     name : string,
-    
-    weatherDesc : IWeatherDescription
+    main : IMainWeatherPropeties,
+    weather: IWeatherDescription[]
 }

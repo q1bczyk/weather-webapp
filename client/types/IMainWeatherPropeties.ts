@@ -1,4 +1,4 @@
-export default interface IBaseWeatherPropeties{
+export default interface IMainWeatherPropeties{
     humidity : number;
     pressure : number;
     temp : number
