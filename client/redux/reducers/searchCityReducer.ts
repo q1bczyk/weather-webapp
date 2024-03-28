@@ -1,9 +1,11 @@
 interface ISearchCityState{
     cityName : string;
+    unit : string;
 }
 
 const initialState : ISearchCityState = {
-    cityName : ''
+    cityName : '',
+    unit : 'standard'
 };
 
 const searchCityReducer = (state : ISearchCityState = initialState, action : any) => {
@@ -12,6 +14,12 @@ const searchCityReducer = (state : ISearchCityState = initialState, action : any
         return{
             ...state,
             cityName : action.payload
+        }
+
+        case 'SELECT_UNIT':
+        return{
+            ...state,
+            unit : action.payload
         }
 
         default: 

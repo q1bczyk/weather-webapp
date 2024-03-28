@@ -11,9 +11,9 @@ export const getForecast = async (cityName : string) => {
     return await axios.get(url);
 }
 
-export const getCurrentWeather = async (cityName : string) : Promise<AxiosResponse<ICurrentWeather>> => {
+export const getCurrentWeather = async (cityName : string, unit : string) : Promise<AxiosResponse<ICurrentWeather>> => {
     
-    const url = `${apiUrl}weather?q=${cityName}&appid=${apiConfig.apiKey}&units=metric&lang=pl`;
+    const url = `${apiUrl}weather?q=${cityName}&appid=${apiConfig.apiKey}&units=${unit}&lang=pl`;
 
     return await axios.get(url);
 } 

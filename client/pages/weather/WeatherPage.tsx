@@ -8,6 +8,7 @@ import ICurrentWeather from '@/types/ICurrentWeather';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import Loader from '@/components/Loader';
 import CitySearch from '@/components/CitySearch/CitySearch';
+import { useSelector } from '@/node_modules/react-redux/dist/react-redux';
 
 const WeatherPage : React.FC = () => {
 
@@ -16,12 +17,13 @@ const WeatherPage : React.FC = () => {
 
   const[isLoading, setLoading] = useState(true);
   const[weather, setWeather] = useState<ICurrentWeather>();
+  const unit: string = useSelector(state => state.searchCity.unit);
 
   useEffect(() => {
     
     setLoading(true);
 
-    getCurrentWeather(searchParams.get('place'))
+    getCurrentWeather(searchParams.get('place'), unit)
     .then((res : any) => {
       setWeather(res.data);
       setLoading(false);

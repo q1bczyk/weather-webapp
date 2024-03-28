@@ -1,14 +1,19 @@
 'use client'
 
-import React, { useState } from 'react'
+import { useDispatch, useSelector } from '@/node_modules/react-redux/dist/react-redux';
+import { selectUnit } from '@/redux/actions/searchCityAction';
+import React, { useEffect, useState } from 'react'
 
 const MetricUnits = () => {
 
-    const[units, setUnits] = useState<string>('standard');
+    const dispatch = useDispatch();
+    const selectedUnit = useSelector(state => state.searchCity.unit);
+
+    const[unit, setUnits] = useState<string>(selectedUnit);
 
     const handleUnitChange = (event : React.ChangeEvent<HTMLSelectElement>) => {
         setUnits(event.target.value);
-        console.log(units);
+        dispatch(selectUnit(event.target.value));
     };
 
     return (
@@ -18,9 +23,9 @@ const MetricUnits = () => {
                 <select 
                     id="countries" 
                     className="w-80 text-sm rounded-lg p-2.5 dark:border-black dark:placeholder-black bg-black bg-opacity-10 text-white pointer" 
-                    value={units} 
+                    value={unit} 
                     onChange={handleUnitChange}>
-                    <option selected value="standard">Standardowa</option>
+                    <option value="standard">Standardowa</option>
                     <option value="metric">Metryczna</option>
                     <option value="imperial">Imperialna</option>
                 </select>
