@@ -8,13 +8,13 @@ import WeatherProperties from './WeatherProperties/WeatherProperties';
 const CurrentWeather : React.FC<ICurrentWeather> = (props) => {
 
   return (
-    <div className='w-full sm:w-11/12 md:w-8/12 lg:w-10/12 flex flex-col items-center lg:flex-row lg:justify-around bg-black bg-opacity-10 rounded-lg h-90 p-10'>
+    <div className='w-full sm:w-11/12 md:w-8/12 lg:w-11/12 flex flex-col items-center lg:flex-row lg:justify-around bg-black bg-opacity-10 rounded-lg h-90 p-10'>
       <WeatherDescription
         imgCode={props.weather[0].icon}
         description={props.weather[0].description}
         cityName={props.name}
       />
-      <span className='bg-white h-px w-full mt-10 mb-10 lg:h-full lg:w-px lg:mt-0 lg:mb-0 rounded bg-sky-400'></span>
+      <span className='bg-sky-500 h-px w-full mt-10 mb-10 lg:h-full lg:w-px lg:mt-0 lg:mb-0 rounded'></span>
       <WeatherProperties
         main={props.main}
         wind={props.wind.speed}
