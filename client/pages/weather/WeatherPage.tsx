@@ -10,6 +10,7 @@ import Loader from '@/components/Loader';
 import CitySearch from '@/components/CitySearch/CitySearch';
 import { useDispatch, useSelector } from '@/node_modules/react-redux/dist/react-redux';
 import { setLoading } from '@/redux/actions/searchCityAction';
+import Forecast from './components/Forecast/Forecast';
 
 const WeatherPage : React.FC = () => {
 
@@ -19,7 +20,6 @@ const WeatherPage : React.FC = () => {
 
   const[weather, setWeather] = useState<ICurrentWeather>();
   const unit: string = useSelector(state => state.searchCity.unit);
-  const isLoading : boolean = useSelector(state => state.searchCity.isLoading);
 
   useEffect(() => {
     
@@ -34,17 +34,24 @@ const WeatherPage : React.FC = () => {
   }, [searchParams.get('place')])
 
   return (
-    <div className='w-full flex flex-column justify-center h-screen w-screen color-white flex flex-col items-center bg-gradient-to-r from-sky-500 to-indigo-500 relative p-20 text-white min-h-500 min-h-fit'>
-      <CitySearch/>
+    <div className='w-full flex flex-column justify-center h-fit w-screen color-white flex flex-col items-center bg-gradient-to-r from-sky-500 to-indigo-500 relative p-20 text-white min-h-500'>
       {weather ?  
-        <CurrentWeather 
-          key='1'
-          name={weather.name}
-          main={weather.main}
-          weather={weather.weather}
-          wind={weather.wind}
-        /> : <Loader/> 
+        <>
+          <CitySearch/>
+          <CurrentWeather 
+            key='1'
+            name={weather.name}
+            main={weather.main}
+            weather={weather.weather}
+            wind={weather.wind}
+          />
+        </> 
+        : <Loader/> 
       }
+      <Forecast
+        cityName={searchParams.get('place')}
+        unit={unit}
+      />
     </div>
   )
 }
