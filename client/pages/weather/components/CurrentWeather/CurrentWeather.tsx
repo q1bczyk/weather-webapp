@@ -14,7 +14,7 @@ const CurrentWeather : React.FC<ICurrentWeather> = (props) => {
         description={props.weather[0].description}
         cityName={props.name}
       />
-      <span className='bg-white h-px w-full mt-10 mb-10 lg:h-full lg:w-px lg:mt-0 lg:mb-0 rounded bg-sky-500'></span>
+      <span className='bg-white h-px w-full mt-10 mb-10 lg:h-full lg:w-px lg:mt-0 lg:mb-0 rounded bg-sky-400'></span>
       <WeatherProperties
         main={props.main}
         wind={props.wind.speed}

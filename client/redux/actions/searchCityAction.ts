@@ -11,3 +11,10 @@ export const selectUnit = (unit : string) => {
         payload : unit
     }
 }
+
+export const setLoading = (state : boolean) => {
+    return{
+        type : 'SET_LOADING',
+        payload : state
+    }
+}

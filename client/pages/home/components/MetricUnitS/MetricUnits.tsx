@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from '@/node_modules/react-redux/dist/react-redux';
 import { selectUnit } from '@/redux/actions/searchCityAction';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const MetricUnits = () => {
 

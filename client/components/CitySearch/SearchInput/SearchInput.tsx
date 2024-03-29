@@ -38,7 +38,7 @@ const SearchInput : React.FC = () => {
                     value={formValue} 
                     onChange={(event) => handleEnterData(event.target.value)} 
                     type="search" id="default-search" 
-                    className="block w-80 p-2 ps-10 text-md text-slate-50 rounded-lg bg-black bg-opacity-10" 
+                    className="block w-full p-2 ps-10 text-md text-slate-50 rounded-lg bg-black bg-opacity-10" 
                     placeholder="miasto" 
                     required
                 />

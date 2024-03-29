@@ -1,11 +1,13 @@
 interface ISearchCityState{
     cityName : string;
     unit : string;
+    isLoading : boolean;
 }
 
 const initialState : ISearchCityState = {
     cityName : '',
-    unit : 'standard'
+    unit : 'standard',
+    isLoading : false
 };
 
 const searchCityReducer = (state : ISearchCityState = initialState, action : any) => {
@@ -20,6 +22,12 @@ const searchCityReducer = (state : ISearchCityState = initialState, action : any
         return{
             ...state,
             unit : action.payload
+        }
+
+        case 'SET_LOADING':
+        return{
+            ...state,
+            isLoading : action.payload
         }
 
         default: 

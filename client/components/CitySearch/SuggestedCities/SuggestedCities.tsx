@@ -7,7 +7,8 @@ import { getCities } from '@/services/GeocodingService';
 import IGeocodingData from '@/types/IGeocodingData';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from '@/node_modules/react-redux/dist/react-redux';
-import { enterData } from '@/redux/actions/searchCityAction';
+import { enterData, setLoading } from '@/redux/actions/searchCityAction';
+import Loader from '@/components/Loader';
 
 const SuggestedCities : React.FC = () => {
 
@@ -16,6 +17,7 @@ const SuggestedCities : React.FC = () => {
 
   const [cities, setCities] = useState<IGeocodingData[]>([]);
   const searchParams : string = useSelector(state => state.searchCity.cityName);
+  const isLoading : boolean = useSelector(state => state.searchCity.isLoading);
 
   useEffect(() => {
       
@@ -33,7 +35,8 @@ const SuggestedCities : React.FC = () => {
   }, [searchParams]);
 
   const onCitySelect = (index : number) => {
-    dispatch(enterData(''));
+    dispatch(enterData(''));  
+    dispatch(setLoading(true));
     router.push(`/weather?place=${cities[index].name}`);
   }
 
@@ -49,6 +52,7 @@ const SuggestedCities : React.FC = () => {
         onClick={() => onCitySelect(index)}
       /> 
       ))}
+      {isLoading ? <Loader/> : null}
     </div>
   )
 }
