@@ -2,6 +2,7 @@
 
 import { getForecast } from '@/services/WeatherService';
 import IForecast from '@/types/IForecast';
+import { createForecastCollection } from '@/utils/createForecastCollection';
 import React, { useEffect, useState } from 'react'
 
 const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
@@ -11,7 +12,7 @@ const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
   useEffect(() => {
     getForecast(props.cityName, props.unit)
         .then(res => {
-            setForecast(res.data.list);
+            setForecast(createForecastCollection('hourly', res.data.list));
         })
         .catch((e : Error) => {
             console.log(e);
