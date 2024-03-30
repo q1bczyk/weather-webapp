@@ -10,7 +10,7 @@ import { useDispatch } from "@/node_modules/react-redux/dist/react-redux";
 import { enterData, setLoading } from "@/redux/actions/searchCityAction";
 import Loader from "@/components/Loader";
 
-const SuggestedCities: React.FC = () => {
+const SuggestedCities: React.FC<{absolute : boolean}> = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -37,7 +37,7 @@ const SuggestedCities: React.FC = () => {
   };
 
   return (
-    <div className="w-80 bg-white border-cyan-950 rounded-b-lg overflow-hidden relative bottom-1">
+    <div className={`w-80 bg-white border-cyan-950 rounded-b-lg overflow-hidden ${props.absolute ? 'absolute top-14' : 'relative bottom-1'}`}>
       {cities.map((item, index) => (
         <SuggestedCitiesItem
           key={index}

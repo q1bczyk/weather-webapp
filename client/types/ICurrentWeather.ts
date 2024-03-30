@@ -3,6 +3,7 @@ export default interface ICurrentWeather {
   main: IMainWeatherPropeties;
   weather: IWeatherDescription[];
   wind: IWind;
+  sys : ISys;
 }
 
 interface IMainWeatherPropeties {
@@ -19,4 +20,10 @@ interface IWeatherDescription {
 interface IWind {
   speed: number;
   deg: number;
+}
+
+interface ISys{
+  country: string,
+  sunrise : number,
+  sunset : number,
 }

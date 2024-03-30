@@ -10,7 +10,7 @@ const Home: React.FC = () => {
     <div className="h-fit min-h-screen w-screen color-white flex flex-col items-center justify-start bg-gradient-to-r from-sky-500 to-indigo-500 relative">
       <Logo />
       <MetricUnits />
-      <CitySearch />
+      <CitySearch absolute={false} />
     </div>
   );
 };

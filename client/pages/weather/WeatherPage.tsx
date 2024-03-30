@@ -21,7 +21,7 @@ const WeatherPage: React.FC = () => {
   const dispatch = useDispatch();
 
   const [weather, setWeather] = useState<ICurrentWeather>();
-  const[place, setPlace] = useState<string>(searchParams.get('place'));
+  const place = searchParams.get('place');
   const unit: string = useSelector((state) => state.searchCity.unit);
 
   useEffect(() => {
@@ -40,13 +40,14 @@ const WeatherPage: React.FC = () => {
     <div className="min-h-screen min-w-screen w-full flex flex-column justify-center h-fit w-screen color-white flex flex-col items-center bg-gradient-to-r from-sky-500 to-indigo-500 relative p-20 text-white min-h-500">
       {weather ? (
         <>
-          <CitySearch />
+          <CitySearch absolute={true} />
           <CurrentWeather
             key="1"
             name={weather.name}
             main={weather.main}
             weather={weather.weather}
             wind={weather.wind}
+            sys={weather.sys}
           />
           <Forecast cityName={searchParams.get("place")} unit={unit} />
         </>

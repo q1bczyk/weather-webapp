@@ -22,7 +22,7 @@ const Units = () => {
     <div>
       <form className="max-w-sm mx-auto">
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Wybierz jednostkę metryczną
+          Wybierz jednostkę miary
         </label>
         <select
           id="countries"
