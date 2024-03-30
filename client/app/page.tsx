@@ -1,6 +1,6 @@
 import Home from "@/pages/home/Home";
 
-const Page: React.FC = () => {
+const NotFound : React.FC = () => {
   return (
     <>
       <Home />
@@ -8,4 +8,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default NotFound;
