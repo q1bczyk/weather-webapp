@@ -1,11 +1,11 @@
-import Home from '@/pages/home/Home'
+import Home from "@/pages/home/Home";
 
-const Page : React.FC = () => {
+const Page: React.FC = () => {
   return (
-    <div>
-      <Home/>
-    </div>
-  )
-}
+    <>
+      <Home />
+    </>
+  );
+};
 
-export default Page
+export default Page;

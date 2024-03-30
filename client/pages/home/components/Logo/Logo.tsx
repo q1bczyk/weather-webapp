@@ -1,12 +1,12 @@
-import React from 'react'
-import { TiWeatherPartlySunny } from "react-icons/ti";
+import React from "react";
+import Image from "@/node_modules/next/image";
 
-const Logo : React.FC = () => {
+const Logo: React.FC = () => {
   return (
-    <div className='flex flex-col relative'>
-      <TiWeatherPartlySunny className="text-9xl text-sky-900"/>
+    <div className="p-10">
+      <Image src="/logo.png" alt="" width="200" height="200"></Image>
     </div>
-  )
-}
+  );
+};
 
 export default Logo;

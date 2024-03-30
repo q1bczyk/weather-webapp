@@ -25,7 +25,6 @@ const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
         .then(res => {
             setData(res.data.list);
             setForecast(createCollection(res.data.list));
-            console.log('xd');
         })
         .catch((e : Error) => {
             console.log(e);
