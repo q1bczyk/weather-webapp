@@ -4,12 +4,15 @@ import { getForecast } from '@/services/WeatherService';
 import IForecast from '@/types/IForecast';
 import { createForecastCollection } from '@/utils/createForecastCollection';
 import { mapForecastData } from '@/utils/mapForecastData';
+import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import ForecastControls from './ForecastControls/ForecastControls';
 import ForecastItem from './ForecastItem/ForecastItem';
 
 const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
   
+  const searchParams = useSearchParams();
+
   const[data, setData] = useState<any[]>([]);
   const[forecast, setForecast] = useState<IForecast[]>([]);
   const[forecastType, setForecastType] = useState<string>('hourly');
@@ -29,7 +32,7 @@ const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
         .catch((e : Error) => {
             console.log(e);
         })
-  }, [])  
+  }, [searchParams.get('place')])  
   
   useEffect(() => {
     setForecast(createCollection(data));
