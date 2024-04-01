@@ -17,27 +17,27 @@ const WeatherProperties: React.FC<{
   const unit: string = useSelector((state) => state.searchCity.unit);
 
   return (
-    <div className="flex flex-wrap justify-center items-center lg:flex-col w-1/2">
-      <h2 className="flex items-center text-l p-3">
+    <div className="flex flex-wrap justify-center items-center lg:flex-col w-11/12 lg:w-1/2">
+      <h2 className="flex items-center text-l p-3 justify-start w-72">
         <FaTemperatureHalf className="mr-2 text-sky-900 text-3xl" />{" "}
         Temperatura: {convertTemperature(props.data.main.temp, unit)}
       </h2>
-      <h2 className="flex items-center text-l p-3">
+      <h2 className="flex items-center text-l p-3 justify-start w-72">
         <BsSpeedometer2 className="mr-2 text-sky-900 text-3xl" /> Ciśnienie:{" "}
         {props.data.main.pressure} hPa
       </h2>
-      <h2 className="flex items-center text-l p-3">
+      <h2 className="flex items-center text-l p-3 justify-start w-72">
         <IoWaterOutline className="mr-2 text-sky-900 text-3xl" /> Wilgotność:{" "}
         {props.data.main.humidity}%
       </h2>
-      <h2 className="flex items-center text-l p-3">
+      <h2 className="flex items-center text-l p-3 justify-start w-72">
         <FaWind className="mr-2 text-sky-900 text-3xl" /> Wiatr: {props.data.wind.speed}{" "}
         km/h
       </h2>
-      <h2 className="flex items-center text-l p-3">
+      <h2 className="flex items-center text-l p-3 justify-start w-72">
         <WiSunrise className="mr-2 text-sky-900 text-3xl" /> Wschód: {convertTime(props.data.sys.sunrise)}
       </h2>
-      <h2 className="flex items-center text-l p-3">
+      <h2 className="flex items-center text-l p-3 justify-start w-72">
         <WiSunset className="mr-2 text-sky-900 text-3xl" /> Zachód: {convertTime(props.data.sys.sunset)}
       </h2>
     </div>
