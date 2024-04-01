@@ -9,6 +9,8 @@ interface ProvidersProps {
   store: typeof store;
 }
 
-export default function Providers({ children, store }: ProvidersProps) {
+const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return <Provider store={store}>{children}</Provider>;
 }
+
+export default Providers;
