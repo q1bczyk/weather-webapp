@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Image from '@/node_modules/next/image';
+import Image from 'next/image';
 import { getTime } from '@/utils/todaysDateConventer.ts';
 import ICurrentWeather from '@/types/ICurrentWeather';
 

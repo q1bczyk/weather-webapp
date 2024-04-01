@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "@/node_modules/next/image";
+import Image from "next/image";
 
 const Logo: React.FC = () => {
   return (

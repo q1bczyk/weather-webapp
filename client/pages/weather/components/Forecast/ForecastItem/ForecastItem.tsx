@@ -1,6 +1,6 @@
 import IForecast from '@/types/IForecast';
 import React from 'react'
-import Image from '@/node_modules/next/image';
+import Image from 'next/image';
 import { convertTemperature } from '@/utils/convertTemperature';
 import { useSelector } from '@/node_modules/react-redux/dist/react-redux';
 import { RootState } from '@/redux/stores/searchCityStore';
