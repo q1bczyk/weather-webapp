@@ -45,8 +45,8 @@ const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
         onChangeForecastType={(type : string) => setForecastType(type)}  
       />
       <div className='w-full flex flex-col xl:flex-row justify-between mt-10'>
-        {forecast.map((item : IForecast) => (
-          <ForecastItem {...item}/>
+        {forecast.map((item: IForecast, index: number) => (
+          <ForecastItem key={index} {...item}/>
         ))}
       </div>
     </div>
