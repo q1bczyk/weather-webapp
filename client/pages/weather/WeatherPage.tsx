@@ -26,15 +26,17 @@ const WeatherPage: React.FC = () => {
   const unit: string = useSelector((state: RootState) => state.searchCity.unit);
 
   useEffect(() => {
-    document.title = `Pogoda | ${place}`;
-    getCurrentWeather(place, unit)
-      .then((res: any) => {
-        setWeather(res.data);
-        dispatch(setLoading(false));
-      })
-      .catch((e: Error) => {
-        router.push("/not-found");
-      });
+    if (place) {
+      document.title = `Pogoda | ${place}`;
+      getCurrentWeather(place, unit)
+        .then((res: any) => {
+          setWeather(res.data);
+          dispatch(setLoading(false));
+        })
+        .catch((e: Error) => {
+          router.push("/not-found");
+        });
+    }
   }, [place]);
 
   return (
@@ -50,7 +52,7 @@ const WeatherPage: React.FC = () => {
             wind={weather.wind}
             sys={weather.sys}
           />
-          <Forecast cityName={searchParams?.get("place")} unit={unit} />
+          {place ? <Forecast cityName={place} unit={unit} /> : null}
         </>
       ) : (
         <Loader />
