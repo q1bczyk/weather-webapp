@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
 import Providers from "@/redux/provider";
+import store from "../redux/stores/searchCityStore";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
         <link rel="icon" href="logo.png" />
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers store={store}>{children}</Providers>
       </body>
     </html>
   );
