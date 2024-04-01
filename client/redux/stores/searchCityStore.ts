@@ -1,7 +1,11 @@
 "use client";
 
 import { combineReducers, createStore } from "redux";
-import searchCityReducer from "../reducers/searchCityReducer";
+import searchCityReducer, { ISearchCityState } from "../reducers/searchCityReducer";
+
+export interface RootState {
+  searchCity: ISearchCityState;
+}
 
 const rootReducer = combineReducers({
   searchCity: searchCityReducer,

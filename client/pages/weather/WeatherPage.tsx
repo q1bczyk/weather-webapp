@@ -14,6 +14,7 @@ import {
 } from "@/node_modules/react-redux/dist/react-redux";
 import { setLoading } from "@/redux/actions/searchCityAction";
 import Forecast from "./components/Forecast/Forecast";
+import { RootState } from "@/redux/stores/searchCityStore";
 
 const WeatherPage: React.FC = () => {
   const router = useRouter();
@@ -22,7 +23,7 @@ const WeatherPage: React.FC = () => {
 
   const [weather, setWeather] = useState<ICurrentWeather>();
   const place = searchParams.get('place');
-  const unit: string = useSelector((state) => state.searchCity.unit);
+  const unit: string = useSelector((state: RootState) => state.searchCity.unit);
 
   useEffect(() => {
     document.title = `Pogoda | ${place}`;

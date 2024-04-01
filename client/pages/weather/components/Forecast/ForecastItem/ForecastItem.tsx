@@ -3,10 +3,11 @@ import React from 'react'
 import Image from '@/node_modules/next/image';
 import { convertTemperature } from '@/utils/convertTemperature';
 import { useSelector } from '@/node_modules/react-redux/dist/react-redux';
+import { RootState } from '@/redux/stores/searchCityStore';
 
 const ForecastItem : React.FC<IForecast> = (props) => {
 
-  const unit: string = useSelector(state => state.searchCity.unit);
+  const unit: string = useSelector((state: RootState) => state.searchCity.unit);
 
   return (
     <div className='p-1 w-100 h-72 bg-black bg-opacity-10 flex flex-col justify-center items-center xl:p-6 2xl:p-12 rounded-lg mt-3 xl:mt-0'>

@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "@/node_modules/react-redux/dist/react-redux";
 import { enterData, setLoading } from "@/redux/actions/searchCityAction";
 import Loader from "@/components/Loader";
+import { RootState } from "@/redux/stores/searchCityStore";
 
 const SuggestedCities: React.FC<{absolute : boolean}> = (props) => {
   const router = useRouter();
@@ -16,9 +17,9 @@ const SuggestedCities: React.FC<{absolute : boolean}> = (props) => {
 
   const [cities, setCities] = useState<IGeocodingData[]>([]);
   const searchParams: string = useSelector(
-    (state) => state.searchCity.cityName
+    (state: RootState) => state.searchCity.cityName
   );
-  const isLoading: boolean = useSelector((state) => state.searchCity.isLoading);
+  const isLoading: boolean = useSelector((state: RootState) => state.searchCity.isLoading);
 
   useEffect(() => {
     if (searchParams === "") setCities([]);

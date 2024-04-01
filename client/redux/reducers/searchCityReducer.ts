@@ -1,4 +1,4 @@
-interface ISearchCityState {
+export interface ISearchCityState {
   cityName: string;
   unit: string;
   isLoading: boolean;

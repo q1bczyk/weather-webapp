@@ -5,11 +5,12 @@ import {
   useSelector,
 } from "@/node_modules/react-redux/dist/react-redux";
 import { selectUnit } from "@/redux/actions/searchCityAction";
+import { RootState } from "@/redux/stores/searchCityStore";
 import React, { useState } from "react";
 
 const Units = () => {
   const dispatch = useDispatch();
-  const selectedUnit = useSelector((state) => state.searchCity.unit);
+  const selectedUnit = useSelector((state: RootState) => state.searchCity.unit);
 
   const [unit, setUnits] = useState<string>(selectedUnit);
 

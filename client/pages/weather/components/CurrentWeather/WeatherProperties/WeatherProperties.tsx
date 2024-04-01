@@ -10,11 +10,12 @@ import { useSelector } from "@/node_modules/react-redux/dist/react-redux";
 import { convertTemperature } from "@/utils/convertTemperature";
 import ICurrentWeather from "@/types/ICurrentWeather";
 import { convertTime } from "@/utils/convertTime";
+import { RootState } from "@/redux/stores/searchCityStore";
 
 const WeatherProperties: React.FC<{
   data: ICurrentWeather;
 }> = (props) => {
-  const unit: string = useSelector((state) => state.searchCity.unit);
+  const unit: string = useSelector((state: RootState) => state.searchCity.unit);
 
   return (
     <div className="flex flex-wrap justify-center items-center lg:flex-col w-11/12 lg:w-1/2">
