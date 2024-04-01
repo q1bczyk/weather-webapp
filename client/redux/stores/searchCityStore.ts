@@ -11,6 +11,6 @@ const rootReducer = combineReducers({
   searchCity: searchCityReducer,
 });
 
-const rootStore = createStore(rootReducer);
+const store = createStore(rootReducer);
 
-export default rootStore;
+export default store;

@@ -9,6 +9,6 @@ interface ProvidersProps {
   store: typeof store;
 }
 
-export default function Providers({ children } : ProvidersProps) {
+export default function Providers({ children, store }: ProvidersProps) {
   return <Provider store={store}>{children}</Provider>;
 }
