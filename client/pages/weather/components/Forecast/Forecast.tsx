@@ -25,7 +25,7 @@ const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
 
   useEffect(() => {
     getForecast(props.cityName, props.unit)
-        .then(res => {
+        .then((res : any) => {
             setData(res.data.list);
             setForecast(createCollection(res.data.list));
         })
