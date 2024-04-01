@@ -32,7 +32,7 @@ const Forecast : React.FC<{cityName : string, unit : string}> = (props) => {
         .catch((e : Error) => {
             console.log(e);
         })
-  }, [searchParams.get('place')])  
+  }, [searchParams?.get('place')])  
   
   useEffect(() => {
     setForecast(createCollection(data));

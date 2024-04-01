@@ -22,7 +22,7 @@ const WeatherPage: React.FC = () => {
   const dispatch = useDispatch();
 
   const [weather, setWeather] = useState<ICurrentWeather>();
-  const place = searchParams.get('place');
+  const place = searchParams?.get('place');
   const unit: string = useSelector((state: RootState) => state.searchCity.unit);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const WeatherPage: React.FC = () => {
             wind={weather.wind}
             sys={weather.sys}
           />
-          <Forecast cityName={searchParams.get("place")} unit={unit} />
+          <Forecast cityName={searchParams?.get("place")} unit={unit} />
         </>
       ) : (
         <Loader />
